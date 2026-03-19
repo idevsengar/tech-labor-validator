@@ -1,10 +1,100 @@
+/* ===== Theme ===== */
 :root{
-  --bg:#0b1220; --card:#111827; --muted:#9ca3af; --text:#f8fafc; --brand:#67e8f9; --accent:#22c55e; --warn:#f59e0b; --danger:#ef4444;
+  --bg:#0b1220;            /* page background */
+  --card:#0f172a;          /* card background */
+  --border:#1f2937;        /* subtle borders */
+  --text:#e5e7eb;          /* main text */
+  --muted:#9ca3af;         /* secondary text */
+  --brand:#60a5fa;         /* brand blue */
+  --accent:#22c55e;        /* success green */
+  --warning:#f59e0b;       /* amber */
+  --danger:#ef4444;        /* red */
+  --chip-rg:#065f46;       /* RG chip bg */
+  --chip-ot:#7c2d12;       /* OT chip bg */
+  --chip-hold:#7f1d1d;     /* Hold chip bg */
 }
+
+/* ===== Base ===== */
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue","Noto Sans",sans-serif}
-.container{max-width:1100px;margin:0 auto;padding:28px}
-.h1{font-size:24px;font-weight:700;display:flex;gap:10px;align-items:center}
-.grid{display:grid;gap:16px}
-@media(min-width:900px){.grid-2{grid-template-columns:1fr 1fr}}
-.card{background:var(--card);border:1px solid #1f2937;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(160deg,#0b1220 0%, #0b1428 40%, #091019 100%);
+  color:var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+}
+
+/* ===== Layout ===== */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:28px 18px 44px;
+}
+.h1{
+  display:flex; align-items:center; gap:10px;
+  font-size:28px; font-weight:800; letter-spacing:.2px;
+  margin:4px 0 14px;
+}
+.subtitle{ color:var(--muted); font-size:13px; margin-bottom:18px }
+
+.grid{ display:grid; gap:18px }
+@media(min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr }}
+
+/* ===== Card ===== */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.28);
+}
+.card .content{ padding:16px }
+
+/* ===== Form ===== */
+.label{
+  font-size:12px; color:var(--muted); margin:2px 0 6px; display:block;
+}
+.input,.number,.select{
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#0b1220;
+  color:var(--text);
+  outline:none;
+}
+.input:focus,.number:focus,.select:focus{
+  border-color:#334155; box-shadow:0 0 0 3px rgba(96,165,250,.15);
+}
+.row{ display:grid; grid-template-columns:1fr 1fr; gap:14px }
+
+/* ===== Table ===== */
+.table-wrap{ overflow:auto }
+.table{
+  width:100%; border-collapse:separate; border-spacing:0;
+  font-size:14px;
+}
+.table th{
+  color:var(--muted); font-weight:600; text-align:left;
+  padding:10px 12px; border-bottom:1px solid var(--border);
+  position:sticky; top:0; background:var(--card);
+}
+.table td{
+  padding:12px; border-bottom:1px solid var(--border);
+}
+
+/* ===== Chips/Badges ===== */
+.badge{ display:inline-block; padding:4px 10px; border-radius:999px; font-weight:700; font-size:12px }
+.badge.rg{ background:var(--chip-rg); color:#d1fae5 }
+.badge.ot{ background:var(--chip-ot); color:#ffedd5 }
+.badge.hold{ background:var(--chip-hold); color:#fee2e2 }
+
+/* ===== Helper text ===== */
+.helper{ color:var(--muted); font-size:12px }
+.section-title{ font-weight:700; margin-bottom:8px }
+
+/* ===== Buttons (for future actions) ===== */
+.btn{
+  background:var(--brand); color:white; border:0; border-radius:10px;
+  padding:10px 14px; font-weight:700; cursor:pointer;
+}
+.btn:hover{ filter:brightness(1.07) }
